@@ -1,0 +1,228 @@
+:root {
+  --bg: #0e0f12;
+  --card: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.12);
+  --text: #ffffff;
+  --muted: #9aa0a6;
+  --income: #22c55e;
+  --expense: #ef4444;
+  --shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+body.light {
+  --bg: #f4f6fb;
+  --card: rgba(255,255,255,0.8);
+  --glass: rgba(255,255,255,0.95);
+  --text: #000;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1b1e26, var(--bg));
+  color: var(--text);
+}
+
+/* HEADER */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+}
+
+.tagline {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* THEME TOGGLE */
+.toggle-track {
+  width: 64px;
+  height: 30px;
+  background: var(--card);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  cursor: pointer;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+}
+
+.toggle-thumb {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  left: 3px;
+  transition: 0.3s;
+}
+
+body.light .toggle-thumb {
+  transform: translateX(34px);
+}
+
+/* BALANCE CARD */
+.balance-card {
+  margin: 16px;
+  padding: 26px;
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.balance-card .label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* DATE SLIDER */
+.date-slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.date-slider button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card);
+  color: var(--text);
+  font-size: 20px;
+}
+
+/* TRANSACTIONS */
+.transactions {
+  list-style: none;
+  padding: 16px;
+}
+
+.transactions li {
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  padding: 14px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income { color: var(--income); }
+.expense { color: var(--expense); }
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 34px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  cursor: pointer;
+  z-index: 50;
+}
+
+.fab.income { background: linear-gradient(135deg, #22c55e, #16a34a); }
+.fab.expense { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: flex-end;
+  z-index: 100;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.sheet {
+  width: 100%;
+  background: var(--glass);
+  backdrop-filter: blur(30px);
+  padding: 24px;
+  border-radius: 24px 24px 0 0;
+}
+
+/* TYPE SWITCH */
+.type-switch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.type-switch button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
+
+.type-switch .active {
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4);
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  margin-bottom: 12px;
+}
+
+/* SAVE */
+.save {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  color: white;
+}
+
+.save.income { background: var(--income); }
+.save.expense { background: var(--expense); }
+
+.cancel {
+  margin-top: 8px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  width: 100%;
+}

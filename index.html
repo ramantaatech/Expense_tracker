@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Finora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="top">
+    <div>
+      <h1>Finora</h1>
+      <span class="tagline">Money, beautifully managed</span>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+      <div class="toggle-track">
+        <span>☀️</span>
+        <span>🌙</span>
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- BALANCE CARD -->
+  <section class="balance-card">
+    <span class="label">Total Balance</span>
+    <div class="amount" id="balance">₹ 0</div>
+  </section>
+
+  <!-- DATE SLIDER -->
+  <section class="date-slider">
+    <button id="prevDay">‹</button>
+    <span id="currentDate"></span>
+    <button id="nextDay">›</button>
+  </section>
+
+  <!-- TRANSACTIONS -->
+  <ul class="transactions" id="transactions"></ul>
+
+</div>
+
+<!-- FAB -->
+<div class="fab income" id="fab">+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="sheet">
+    <h3>Add Transaction</h3>
+
+    <div class="type-switch">
+      <button id="incomeBtn" class="active">Income</button>
+      <button id="expenseBtn">Expense</button>
+    </div>
+
+    <input type="number" id="amount" placeholder="Amount" />
+    <input type="text" id="title" placeholder="Category / Note" />
+
+    <button class="save income" id="saveBtn">Save</button>
+    <button class="cancel" id="cancelBtn">Cancel</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
